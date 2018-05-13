@@ -25,10 +25,16 @@ class CrmController extends Controller
         return view('auth/passwords/email');
     }
     public function reg()
-    {
+    {   
+
         return view('register');
     }
 
+    public function registerStep1()
+   {
+     print_r($_POST);die();
+   }
+        
     public function authenticate(Request $request)
     {
         $credentials = $request->only('email', 'password');
