@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use App\Models\User;
+
+
 
 class CrmController extends Controller
 {
@@ -14,7 +17,7 @@ class CrmController extends Controller
     }
     public function log()
     {
-        return view('login');
+        return view('auth/login');
     }
     public function rset()
     {
@@ -30,10 +33,37 @@ class CrmController extends Controller
         return view('register');
     }
 
-    public function registerStep1()
+    public function registerStep1(Request $request)
    {
-     print_r($_POST);die();
+    
+    $this->validate($request,[
+          'fname' => 'required',
+          'lname' => 'required',
+          'phone' => 'required',
+          'twitter' => 'required',
+          'facebook' => 'required',
+          'gplus' => 'required',
+          'email' => 'required',
+          'pass' => 'required'
+    ]);
+    
+  
+    $User = new User;
+   
+    $User->First_Name = $request->fname;
+    $User->Last_Name = $request->lname ;
+    $User->Phone = $request->phone;
+    $User->Twitter = $request->twitter;
+    $User->FaceBook = $request->facebook ;
+    $User->Google_plus = $request->gplus;
+    $User->Email = $request->email;
+    $User->Password = $request->pass ;
+    
+    $User->save();
+    return redirect('/login');
    }
+
+   
         
     public function authenticate(Request $request)
     {

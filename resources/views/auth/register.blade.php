@@ -4,6 +4,13 @@
 <!-- MultiStep Form -->
 <div class="row">
     <div class="col-md-6 col-md- offset-3">
+       @if ($errors->any())
+          @foreach ($errors->all() as $error)
+          <div class="alert alert-danger" role="alert">
+                     This is a danger alert—check it out!{{ $error }}
+          </div>
+          @endforeach
+       @endif
         <form action="/registerStep1" method="post" id="msform">
             <!-- progressbar -->
             <ul id="progressbar">

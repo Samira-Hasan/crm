@@ -12,12 +12,13 @@
 */
 
 Route::get('/dashboard', 'CrmController@index');
-Route::get('/login', 'CrmController@log');
+Route::get('/', 'CrmController@log');
 Route::get('/email', 'CrmController@mail');
 Route::get('/reset', 'CrmController@rset');
 Route::get('/register', 'CrmController@reg');
 Route::post('/login', 'CrmController@authenticate');
 Route::post('/registerStep1', 'CrmController@registerStep1');
+
 
 Auth::routes();
 
