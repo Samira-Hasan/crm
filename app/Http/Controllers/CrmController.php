@@ -6,14 +6,19 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\User;
+use App\Models\MonthlyVisitor;
 
 
 
 class CrmController extends Controller
 {
     public function index()
-    {
-        return view('dashboard');
+    {   
+        $MonthlyVisitor = MonthlyVisitor::all(['visitor_count'])->toArray();
+
+        $visitor = array_column($MonthlyVisitor, 'visitor_count');
+        
+        return view('dashboard', ['name' => $visitor]);
     }
     public function log()
     {
