@@ -165,8 +165,8 @@ var chart = new Chart(ctx, {
                 <div class="col-sm-3 col-xs-6">
                   <div class="description-block border-right">
                     <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 17%</span>
-                    <h5 class="description-header">$35,210.43</h5>
-                    <span class="description-text">TOTAL REVENUE</span>
+                    <h5 class="description-header">$<?php echo ($revenue);?></h5>
+                    <span class="description-text">Total Revenue</span>
                   </div>
                   <!-- /.description-block -->
                 </div>
@@ -174,8 +174,8 @@ var chart = new Chart(ctx, {
                 <div class="col-sm-3 col-xs-6">
                   <div class="description-block border-right">
                     <span class="description-percentage text-yellow"><i class="fa fa-caret-left"></i> 0%</span>
-                    <h5 class="description-header">$10,390.90</h5>
-                    <span class="description-text">TOTAL COST</span>
+                    <h5 class="description-header">$<?php echo ($cost); ?></h5>
+                    <span class="description-text">Total Cost</span>
                   </div>
                   <!-- /.description-block -->
                 </div>
@@ -183,8 +183,8 @@ var chart = new Chart(ctx, {
                 <div class="col-sm-3 col-xs-6">
                   <div class="description-block border-right">
                     <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 20%</span>
-                    <h5 class="description-header">$24,813.53</h5>
-                    <span class="description-text">TOTAL PROFIT</span>
+                    <h5 class="description-header">$<?php echo ($profit); ?></h5>
+                    <span class="description-text">Total Profit</span>
                   </div>
                   <!-- /.description-block -->
                 </div>
@@ -192,8 +192,8 @@ var chart = new Chart(ctx, {
                 <div class="col-sm-3 col-xs-6">
                   <div class="description-block">
                     <span class="description-percentage text-red"><i class="fa fa-caret-down"></i> 18%</span>
-                    <h5 class="description-header">1200</h5>
-                    <span class="description-text">GOAL COMPLETIONS</span>
+                    <h5 class="description-header">$<?php echo ($goal); ?></h5>
+                    <span class="description-text">Goal</span>
                   </div>
                   <!-- /.description-block -->
                 </div>

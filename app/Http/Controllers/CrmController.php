@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\Revenue;
 use App\Models\User;
 use App\Models\MonthlyVisitor;
 
@@ -17,8 +18,16 @@ class CrmController extends Controller
         $MonthlyVisitor = MonthlyVisitor::all(['visitor_count'])->toArray();
 
         $visitor = array_column($MonthlyVisitor, 'visitor_count');
+        $Total = Revenue::getData();
         
-        return view('dashboard', ['name' => $visitor]);
+        $Revenue = $Total[0]->Total_Revenue;
+        $Cost = $Total[0]->Total_Cost;
+        $Profit = $Total[0]->Total_Profit;
+        $Goal = $Total[0]->Goal;
+
+       
+        return view('dashboard', ['name' => $visitor, 'revenue' => $Revenue, 'cost' => $Cost, 'profit' => $Profit, 'goal' => $Goal]);
+        
     }
     public function log()
     {
