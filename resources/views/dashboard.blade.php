@@ -11,7 +11,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">CPU Traffic</span>
-              <span class="info-box-number">90<small>%</small></span>
+              <span class="info-box-number"><?php echo ($traffic);?><small>%</small></span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -23,7 +23,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Likes</span>
-              <span class="info-box-number">41,410</span>
+              <span class="info-box-number"><?php echo ($likes);?></span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -35,7 +35,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Sales</span>
-              <span class="info-box-number">760</span>
+              <span class="info-box-number"><?php echo ($sales);?></span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -47,7 +47,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">New Members</span>
-              <span class="info-box-number">2,000</span>
+              <span class="info-box-number"><?php echo ($members);?></span>
             </div>
             <!-- /.info-box-content -->
           </div>

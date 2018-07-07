@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Revenue;
 use App\Models\User;
 use App\Models\MonthlyVisitor;
+use App\Models\Dashboard;
 
 
 
@@ -24,9 +25,20 @@ class CrmController extends Controller
         $Cost = $Total[0]->Total_Cost;
         $Profit = $Total[0]->Total_Profit;
         $Goal = $Total[0]->Goal;
-
-       
-        return view('dashboard', ['name' => $visitor, 'revenue' => $Revenue, 'cost' => $Cost, 'profit' => $Profit, 'goal' => $Goal]);
+        $member = Dashboard::createMembers();
+        $formattedMembers = number_format($member);
+        $sales = Dashboard::where('id', '>=', 800)->sum('sales');
+        $sales = number_format($sales);
+        $likes = Dashboard::getlikes();
+        $l = $likes[0]->likes;        
+        $formattedLikes = number_format($l);
+        $Traffic = Dashboard::createTraffic();
+        $t = $Traffic[0]->traffic;
+        
+        return view('dashboard', ['name' => $visitor, 
+        'revenue' => $Revenue, 'cost' => $Cost, 'profit' => $Profit, 'goal' => $Goal, 
+        'traffic' => $t, 'likes' => $formattedLikes, 'sales' => $sales, 
+        'members' => $formattedMembers]);
         
     }
     public function log()
