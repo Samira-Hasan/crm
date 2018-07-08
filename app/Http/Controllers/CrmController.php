@@ -1,16 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Revenue;
 use App\Models\User;
 use App\Models\MonthlyVisitor;
 use App\Models\Dashboard;
-
-
+use App\Models\ChatBox;
 
 class CrmController extends Controller
 {
@@ -34,11 +31,13 @@ class CrmController extends Controller
         $formattedLikes = number_format($l);
         $Traffic = Dashboard::createTraffic();
         $t = $Traffic[0]->traffic;
+        $chat = ChatBox::createChatBox();
+        
         
         return view('dashboard', ['name' => $visitor, 
         'revenue' => $Revenue, 'cost' => $Cost, 'profit' => $Profit, 'goal' => $Goal, 
         'traffic' => $t, 'likes' => $formattedLikes, 'sales' => $sales, 
-        'members' => $formattedMembers]);
+        'members' => $formattedMembers, 'chat' => $chat]);
         
     }
     public function log()
