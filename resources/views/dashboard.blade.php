@@ -405,15 +405,7 @@ var chart = new Chart(ctx, {
                     </div>
                   </form>
                 </div>
-                <script> 
-                         $(document).ready(function(){
-                              $( "#target" ).submit(function( event ) {
-                                console.log('g');
-                                  alert( "Handler for .submit() called." );
-                                   event.preventDefault();
-                                });
-                              });   
-                </script>
+                
                 <!-- /.box-footer-->
               </div>
               </div>
@@ -788,6 +780,16 @@ var chart = new Chart(ctx, {
 
 @section('js')
     <script> console.log('Hi!'); </script>
+    <script> 
+                         $(document).ready(function(){
+                           console.log('fff');
+                              $( "#target" ).submit(function( event ) {
+                                console.log('g');
+                                  alert( "Handler for .submit() called." );
+                                   event.preventDefault();
+                                });
+                              });   
+                </script>
 @stop
 @push('css')
 
