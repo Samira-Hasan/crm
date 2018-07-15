@@ -59,7 +59,13 @@
           <div class="box">
         <div class="box-header with-border">
               <h3 class="box-title">Monthly Recap Report</h3>
-
+                <diV>
+                      <ul style='list-style-type'>
+                         <li><?php echo ($country); ?></li>
+                         <li><?php echo ($country); ?></li>
+                         <li><?php echo($country); ?></li>
+                      </ul>
+                </div>
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
@@ -233,67 +239,15 @@ var chart = new Chart(ctx, {
                         <span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</span>
                       </div>
                       <!-- /.direct-chat-info -->
-                      <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image">
+                      <img class="direct-chat-img" src="Image/download.png" alt="message user image">
                       <!-- /.direct-chat-img -->
                       <div class="direct-chat-text">
                         <?php echo $value->messege; ?>
                       </div>
                       <!-- /.direct-chat-text -->
                     </div>
-                   
-                        
-                         <?php } ?>
-                    
-
-                    <!-- Message to the right -->
-                    <div class="direct-chat-msg right">
-                      <div class="direct-chat-info clearfix">
-                        <span class="direct-chat-name pull-right"><?php echo $value->Last_Name; ?></span>
-                        <span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</span>
-                      </div>
-                      <!-- /.direct-chat-info -->
-                      <img class="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="message user image">
-                      <!-- /.direct-chat-img -->
-                      <div class="direct-chat-text">
-                        You better believe it!
-                      </div>
-                      <!-- /.direct-chat-text -->
+                        <?php } ?>
                     </div>
-                    <!-- /.direct-chat-msg -->
-
-                    <!-- Message. Default to the left -->
-                    <div class="direct-chat-msg">
-                      <div class="direct-chat-info clearfix">
-                        <span class="direct-chat-name pull-left"><?php echo $value->First_Name; ?></span>
-                        <span class="direct-chat-timestamp pull-right">23 Jan 5:37 pm</span>
-                      </div>
-                      <!-- /.direct-chat-info -->
-                      <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image">
-                      <!-- /.direct-chat-img -->
-                      <div class="direct-chat-text">
-                        Working with AdminLTE on a great new app! Wanna join?
-                      </div>
-                      <!-- /.direct-chat-text -->
-                    </div>
-                    <!-- /.direct-chat-msg -->
-
-                    <!-- Message to the right -->
-                    <div class="direct-chat-msg right">
-                      <div class="direct-chat-info clearfix">
-                        <span class="direct-chat-name pull-right"><?php echo $value->Last_Name; ?></span>
-                        <span class="direct-chat-timestamp pull-left">23 Jan 6:10 pm</span>
-                      </div>
-                      <!-- /.direct-chat-info -->
-                      <img class="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="message user image">
-                      <!-- /.direct-chat-img -->
-                      <div class="direct-chat-text">
-                        I would love to.
-                      </div>
-                      <!-- /.direct-chat-text -->
-                    </div>
-                    <!-- /.direct-chat-msg -->
-
-                  </div>
                   <!--/.direct-chat-messages-->
 
                   <!-- Contacts are loaded here -->
@@ -398,7 +352,7 @@ var chart = new Chart(ctx, {
                 <div class="box-footer">
                   <form method="post" id="target">
                     <div class="input-group">
-                      <input type="text" name="message" placeholder="Type Message ..." class="form-control">
+                      <input type="text" id="message" name="message" placeholder="Type Message ..." class="form-control">
                       <span class="input-group-btn">
                             <input type="submit" class="btn btn-warning btn-flat">Send</button>
                           </span>
@@ -426,44 +380,44 @@ var chart = new Chart(ctx, {
                 <div class="box-body no-padding">
                   <ul class="users-list clearfix">
                     <li>
-                      <img src="dist/img/user1-128x128.jpg" alt="User Image">
+                      <img src="Image/download.png" alt="User Image">
                       <a class="users-list-name" href="#">Alexander Pierce</a>
-                      <span class="users-list-date">Today</span>
+                      <span class="users-list-date"><?php echo ($today); ?></span>
                     </li>
                     <li>
-                      <img src="dist/img/user8-128x128.jpg" alt="User Image">
+                      <img src="Image/download.png" alt="User Image">
                       <a class="users-list-name" href="#">Norman</a>
-                      <span class="users-list-date">Yesterday</span>
+                      <span class="users-list-date"><?php echo ($yesterday); ?></span>
                     </li>
                     <li>
-                      <img src="dist/img/user7-128x128.jpg" alt="User Image">
+                      <img src="Image/download.png" alt="User Image">
                       <a class="users-list-name" href="#">Jane</a>
-                      <span class="users-list-date">12 Jan</span>
+                      <span class="users-list-date"><?php echo ($date); ?></span>
                     </li>
                     <li>
-                      <img src="dist/img/user6-128x128.jpg" alt="User Image">
+                      <img src="Image/download.png" alt="User Image">
                       <a class="users-list-name" href="#">John</a>
-                      <span class="users-list-date">12 Jan</span>
+                      <span class="users-list-date"><?php echo ($date); ?></span>
                     </li>
                     <li>
-                      <img src="dist/img/user2-160x160.jpg" alt="User Image">
+                      <img src="Image/download.png" alt="User Image">
                       <a class="users-list-name" href="#">Alexander</a>
-                      <span class="users-list-date">13 Jan</span>
+                      <span class="users-list-date"><?php echo ($date); ?></span>
                     </li>
                     <li>
-                      <img src="dist/img/user5-128x128.jpg" alt="User Image">
+                      <img src="Image/download.png" alt="User Image">
                       <a class="users-list-name" href="#">Sarah</a>
-                      <span class="users-list-date">14 Jan</span>
+                      <span class="users-list-date"><?php echo ($date); ?></span>
                     </li>
                     <li>
-                      <img src="dist/img/user4-128x128.jpg" alt="User Image">
+                      <img src="Image/download.png" alt="User Image">
                       <a class="users-list-name" href="#">Nora</a>
-                      <span class="users-list-date">15 Jan</span>
+                      <span class="users-list-date"><?php echo ($date); ?></span>
                     </li>
                     <li>
-                      <img src="dist/img/user3-128x128.jpg" alt="User Image">
+                      <img src="Image/download.png" alt="User Image">
                       <a class="users-list-name" href="#">Nadia</a>
-                      <span class="users-list-date">15 Jan</span>
+                      <span class="users-list-date"><?php echo ($date); ?></span>
                     </li>
                   </ul>
                   <!-- /.users-list -->
@@ -782,10 +736,55 @@ var chart = new Chart(ctx, {
     <script> console.log('Hi!'); </script>
     <script> 
                          $(document).ready(function(){
-                           console.log('fff');
-                              $( "#target" ).submit(function( event ) {
-                                console.log('g');
-                                  alert( "Handler for .submit() called." );
+                             $( "#target" ).submit(function( event ) {
+                                $.ajax({
+                                     url: '{{url("/message")}}',
+                                     cache: false,
+                                     data: {
+                                            "_token": "{{ csrf_token() }}",
+                                            'message':  $("#message").val(),
+                                           },
+                                     error: function() {
+                                           $('#info').html('<p>An error has occurred</p>');
+                                                      },
+                                     dataType: 'json',
+                                     success: function(html){
+                                      if(html.success){
+                                        $.ajax({
+                                                  url: '{{url("/chatbox")}}',
+                                                  cache: false,
+                                                  error: function() {
+                                                          $('#info').html('<p>An error has occurred</p>');
+                                                        },
+                                                  dataType: 'json',
+                                                  success: function(html){
+                                                    $(".direct-chat-messages").html('');                                                      
+                                                       for(var i = 0; i < html.chat.length; i++) {
+                                                                 var obj = html.chat[i];
+                                                                 
+                                                                 var obj1 = '<div class="direct-chat-msg">' +
+                                                                     '<div class="direct-chat-info clearfix">' +
+                                                                         '<span class="direct-chat-name pull-left"><?php echo $value->First_Name; ?></span>' +
+                                                                         '<span class="direct-chat-timestamp pull-right">'+obj.created_at+'</span>' +
+                                                                     '</div>' +
+                                                                        '<img class="direct-chat-img" src="Image/download.png" alt="message user image">' +
+                                                                      '<div class="direct-chat-text">' +
+                                                                          obj.messege +
+                                                                      '</div>' +
+                                                                 '</div>';
+                                                                 
+                                                                 $(".direct-chat-messages").append(obj1);
+                                                                   }
+                                                              },
+                                                  type: 'GET'
+                                                });
+                                            }
+                                      
+                                       $("#results").append(html);
+                                       },
+                                       type: 'POST'
+                                    });
+                                 
                                    event.preventDefault();
                                 });
                               });   

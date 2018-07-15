@@ -29,6 +29,7 @@ class ChatBox extends Model
          return DB::table('ChatBox')
             ->leftJoin('users', 'users.id', '=', 'ChatBox.user_id')
             ->take(10)
+            ->orderBy('chatbox.id', 'DESC')
             ->get()->toArray();
     }
     

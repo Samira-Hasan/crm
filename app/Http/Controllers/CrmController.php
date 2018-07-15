@@ -9,6 +9,7 @@ use App\Models\MonthlyVisitor;
 use App\Models\Dashboard;
 use App\Models\ChatBox;
 
+
 class CrmController extends Controller
 {
     public function index()
@@ -32,12 +33,16 @@ class CrmController extends Controller
         $Traffic = Dashboard::createTraffic();
         $t = $Traffic[0]->traffic;
         $chat = ChatBox::createChatBox();
-        
-        
-        return view('dashboard', ['name' => $visitor, 
+        $today = "today";
+        $yesterday = "yesterday";
+        $date = "13 Jan";
+        $User = User::setUser();
+        $country = ['bangladesh', 'pakistan', 'Saudi Arabia']; 
+       
+         return view('dashboard', ['name' => $visitor, 
         'revenue' => $Revenue, 'cost' => $Cost, 'profit' => $Profit, 'goal' => $Goal, 
         'traffic' => $t, 'likes' => $formattedLikes, 'sales' => $sales, 
-        'members' => $formattedMembers, 'chat' => $chat]);
+        'members' => $formattedMembers, 'chat' => $chat, 'today' => $today, 'yesterday' => $yesterday, 'date' => '13 Jan', 'user' => $User, 'country' => $country]);
         
     }
     public function log()
@@ -88,8 +93,37 @@ class CrmController extends Controller
     return redirect('/login');
    }
 
-   
+   public function setMessage(Request $request)
+   {
+    if ($request->isMethod('post')) {
+        //$name = $request->message;
         
+        $chatbox = new ChatBox;
+
+        $chatbox->user_id = 1;
+        $chatbox->messege = $request->message;
+        $chatbox->is_viewed = true;
+
+        $chatbox->save();
+        
+        $response = array(
+            "success" => true,
+        );
+        echo json_encode($response); exit();
+    }
+   }
+    
+    public function getChatbox(Request $request) 
+     {
+        $chat = ChatBox::createChatBox();
+
+        $response = array(
+            "success" => true,
+            "chat" => $chat,
+        );
+        echo json_encode($response); exit();
+     }
+
     public function authenticate(Request $request)
     {
         $credentials = $request->only('email', 'password');
