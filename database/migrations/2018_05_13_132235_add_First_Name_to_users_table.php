@@ -28,9 +28,9 @@ class AddFirstNameToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropdown('First_Name');
-            $table->dropdown('Last_Name');
-            $table->dropdown('Phone');
+            $table->dropcolumn('First_Name');
+            $table->dropcolumn('Last_Name');
+            $table->dropcolumn('Phone');
         });
     }
 }

@@ -59,13 +59,7 @@
           <div class="box">
         <div class="box-header with-border">
               <h3 class="box-title">Monthly Recap Report</h3>
-                <diV>
-                      <ul style='list-style-type'>
-                         <li><?php echo ($country); ?></li>
-                         <li><?php echo ($country); ?></li>
-                         <li><?php echo($country); ?></li>
-                      </ul>
-                </div>
+               
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
@@ -445,7 +439,46 @@ var chart = new Chart(ctx, {
               <div class="row">
                 <div class="col-md-8">
                   <div class="chart-responsive">
-                    <canvas id="pieChart" height="332" width="452" style="width: 226px; height: 166px;"></canvas>
+                  <canvas id="pieChart" width="400" height="400"></canvas>
+                     <script>
+                         var ctx = document.getElementById("pieChart");
+                         var myChart = new Chart(ctx, {
+                         type: 'doughnut',
+                         data: {
+                         labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                         datasets: [{
+                         label: '# of Votes',
+                         data: <?php echo json_encode($pChart); ?>,
+                         backgroundColor: [
+                              'rgba(255, 99, 132, 0.2)',
+                              'rgba(54, 162, 235, 0.2)',
+                              'rgba(255, 206, 86, 0.2)',
+                              'rgba(75, 192, 192, 0.2)',
+                              'rgba(153, 102, 255, 0.2)',
+                              'rgba(255, 159, 64, 0.2)'
+                              ],
+                         borderColor: [
+                               'rgba(255,99,132,1)',
+                               'rgba(54, 162, 235, 1)',
+                               'rgba(255, 206, 86, 1)',
+                               'rgba(75, 192, 192, 1)',
+                               'rgba(153, 102, 255, 1)',
+                               'rgba(255, 159, 64, 1)'
+                               ],
+                         borderWidth: 1
+                       }]
+                    },
+                         options: {                  
+                             scales: {
+                                yAxes: [{
+                                  ticks: {
+                                    beginAtZero:true
+                                         }
+                                       }]
+                                     }
+                                  }
+                              });
+                      </script>
                   </div>
                   <!-- ./chart-responsive -->
                 </div>

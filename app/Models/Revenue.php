@@ -25,7 +25,9 @@ class Revenue extends Model
 
     public static function getData()
     {
-        return DB::select('SELECT SUM(amount) AS Total_Revenue, (SELECT SUM(amount) AS value_sum FROM Cost) AS Total_Cost, (SELECT SUM(amount) AS value_sum FROM Profit) as Total_Profit, (SELECT SUM(amount) AS value_sum FROM Goal) AS Goal FROM Revenue');
+        return DB::select('SELECT SUM(amount) AS Total_Revenue, (SELECT SUM(amount) AS value_sum FROM Cost) AS Total_Cost, (SELECT SUM(amount) 
+        AS value_sum FROM Profit) as Total_Profit, (SELECT SUM(amount) AS value_sum FROM Goal) 
+        AS Goal FROM Revenue');
     }
 
     

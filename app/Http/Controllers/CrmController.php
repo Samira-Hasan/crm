@@ -37,12 +37,13 @@ class CrmController extends Controller
         $yesterday = "yesterday";
         $date = "13 Jan";
         $User = User::setUser();
-        $country = ['bangladesh', 'pakistan', 'Saudi Arabia']; 
-       
-         return view('dashboard', ['name' => $visitor, 
+        $pieChart = [12, 19, 3, 5, 2, 3];
+        
+        return view('dashboard', ['name' => $visitor, 
         'revenue' => $Revenue, 'cost' => $Cost, 'profit' => $Profit, 'goal' => $Goal, 
         'traffic' => $t, 'likes' => $formattedLikes, 'sales' => $sales, 
-        'members' => $formattedMembers, 'chat' => $chat, 'today' => $today, 'yesterday' => $yesterday, 'date' => '13 Jan', 'user' => $User, 'country' => $country]);
+        'members' => $formattedMembers, 'chat' => $chat, 'today' => $today, 'yesterday' => $yesterday, 
+        'date' => '13 Jan', 'user' => $User, 'pChart' => $pieChart]);
         
     }
     public function log()
