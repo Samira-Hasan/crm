@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Visitors;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Revenue;
@@ -37,13 +38,16 @@ class CrmController extends Controller
         $yesterday = "yesterday";
         $date = "13 Jan";
         $User = User::setUser();
-        $pieChart = [12, 19, 3, 5, 2, 3];
-        
-        return view('dashboard', ['name' => $visitor, 
+        $pieChart = Visitors::createVisitors();
+        foreach ($pieChart as $value) {
+            // "$value <br/>";
+        }
+
+        return view('dashboard', ['name' => $visitor,
         'revenue' => $Revenue, 'cost' => $Cost, 'profit' => $Profit, 'goal' => $Goal, 
         'traffic' => $t, 'likes' => $formattedLikes, 'sales' => $sales, 
         'members' => $formattedMembers, 'chat' => $chat, 'today' => $today, 'yesterday' => $yesterday, 
-        'date' => '13 Jan', 'user' => $User, 'pChart' => $pieChart]);
+        'date' => $date, 'user' => $User, 'pChart' => $pieChart]);
         
     }
     public function log()

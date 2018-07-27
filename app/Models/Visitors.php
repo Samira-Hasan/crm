@@ -1,8 +1,8 @@
 <?php
-use DB;
+
 namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
-
+use DB;
 
 class Visitors extends Model
 {
@@ -25,7 +25,10 @@ class Visitors extends Model
 
     public static function createVisitors()
     {
-        return DB::select('SELECT `browser_id`,COUNT(`user_id`) FROM `Visitors` GROUP BY `browser_id` ORDER BY 
-        `browser_id` ASC');
+        return DB::select('SELECT browser_id, COUNT(user_id)
+        FROM Visitors GROUP BY browser_id ORDER BY
+        browser_id ASC');
+
+
     }
 }
