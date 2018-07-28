@@ -13,12 +13,14 @@ class CreateVisitorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('Visitors', function (Blueprint $table) {
+        Schema::create('Visitors', function ($table) {
+            $table->increments('id');
             $table->integer('user_id');
             $table->integer('country_id');
             $table->integer('browser_id');
             $table->timestamps();
         });
+
     }
 
     /**
@@ -28,6 +30,6 @@ class CreateVisitorsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('Visitors'); 
+        Schema::drop('Visitors');
     }
 }

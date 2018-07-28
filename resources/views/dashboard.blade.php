@@ -441,115 +441,37 @@ var chart = new Chart(ctx, {
                   <div class="chart-responsive">
                   <canvas id="pieChart" width="400" height="400"></canvas>
                      <script>
-                         var pieChartCanvas = $('#pieChart').get(0).getContext('2d');
-                         var pieChart       = new Chart(pieChartCanvas);
-                         var PieData        = [
-                             {
-                                 value    : 700,
-                                 color    : '#f56954',
-                                 highlight: '#f56954',
-                                 label    : 'Chrome'
-                             },
-                             {
-                                 value    : 500,
-                                 color    : '#00a65a',
-                                 highlight: '#00a65a',
-                                 label    : 'IE'
-                             },
-                             {
-                                 value    : 400,
-                                 color    : '#f39c12',
-                                 highlight: '#f39c12',
-                                 label    : 'FireFox'
-                             },
-                             {
-                                 value    : 600,
-                                 color    : '#00c0ef',
-                                 highlight: '#00c0ef',
-                                 label    : 'Safari'
-                             },
-                             {
-                                 value    : 300,
-                                 color    : '#3c8dbc',
-                                 highlight: '#3c8dbc',
-                                 label    : 'Opera'
-                             },
-                             {
-                                 value    : 100,
-                                 color    : '#d2d6de',
-                                 highlight: '#d2d6de',
-                                 label    : 'Navigator'
-                             }
-                         ];
-                         var pieOptions     = {
-                             // Boolean - Whether we should show a stroke on each segment
-                             segmentShowStroke    : true,
-                             // String - The colour of each segment stroke
-                             segmentStrokeColor   : '#fff',
-                             // Number - The width of each segment stroke
-                             segmentStrokeWidth   : 1,
-                             // Number - The percentage of the chart that we cut out of the middle
-                             percentageInnerCutout: 50, // This is 0 for Pie charts
-                             // Number - Amount of animation steps
-                             animationSteps       : 100,
-                             // String - Animation easing effect
-                             animationEasing      : 'easeOutBounce',
-                             // Boolean - Whether we animate the rotation of the Doughnut
-                             animateRotate        : true,
-                             // Boolean - Whether we animate scaling the Doughnut from the centre
-                             animateScale         : false,
-                             // Boolean - whether to make the chart responsive to window resizing
-                             responsive           : true,
-                             // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
-                             maintainAspectRatio  : false,
-                             // String - A legend template
-                             legendTemplate       : '<ul class=\'<%=name.toLowerCase()%>-legend\'><% for (var i=0; i<segments.length; i++){%><li><span style=\'background-color:<%=segments[i].fillColor%>\'></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>',
-                             // String - A tooltip template
-                             tooltipTemplate      : '<%=value %> <%=label%> users'
-                         };
-                         // Create pie or douhnut chart
-                         // You can switch between pie and douhnut using the method below.
-                         pieChart.Doughnut(PieData, pieOptions);
-
-
-
                          var ctx = document.getElementById("pieChart");
                          var myChart = new Chart(ctx, {
                          type: 'doughnut',
                          data: {
-                         labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-                         datasets: [{
-                         label: '# of Votes',
-                         data: <?php echo json_encode($pChart); ?>,
-                         backgroundColor: [
-                              'rgba(255, 99, 132, 0.2)',
-                              'rgba(54, 162, 235, 0.2)',
-                              'rgba(255, 206, 86, 0.2)',
-                              'rgba(75, 192, 192, 0.2)',
-                              'rgba(153, 102, 255, 0.2)',
-                              'rgba(255, 159, 64, 0.2)'
-                              ],
-                         borderColor: [
-                               'rgba(255,99,132,1)',
-                               'rgba(54, 162, 235, 1)',
-                               'rgba(255, 206, 86, 1)',
-                               'rgba(75, 192, 192, 1)',
-                               'rgba(153, 102, 255, 1)',
-                               'rgba(255, 159, 64, 1)'
-                               ],
-                         borderWidth: 1
-                       }]
-                    },
+                            datasets: [{
+                                data: [<?php echo $cdata;?>],
+                                backgroundColor: [
+                                   '#ff6384',
+                                    '#36a2eb',
+                                   '#cc65fe',
+                                   '#ffff66',
+                                   '#00ff40',
+                                   '#66d9ff'
+                                 ]
+                            }],
+
+                            // These labels appear in the legend and in the tooltips when hovering different arcs
+                            labels: 
+                                [ <?php echo $label; ?>]
+                            
+                        },
                          options: {                  
                              scales: {
                                 yAxes: [{
                                   ticks: {
-                                    beginAtZero:true
+                                   beginAtZero:true
                                          }
                                        }]
                                      }
-                                  }
-                              });
+                                 }
+                            });
                       </script>
                   </div>
                   <!-- ./chart-responsive -->

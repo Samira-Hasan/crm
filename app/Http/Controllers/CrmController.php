@@ -39,15 +39,27 @@ class CrmController extends Controller
         $date = "13 Jan";
         $User = User::setUser();
         $pieChart = Visitors::createVisitors();
-        foreach ($pieChart as $value) {
-            // "$value <br/>";
+        
+        $arr = [];
+        $val = [];
+        $bser = [];
+        foreach ($pieChart as $user) {
+            array_push($arr, $user->name);
+            array_push($val, $user->Value);
+            array_push($bser, $user->browser_id);
         }
-
+        echo '<pre>';print_r($arr);die();
+        
+        $Labels = array("Chrome", "IE", "Firefox", "Safari", "Opera", "Navigator");
+        $Labels= "'" . implode( "','",($Labels) ) . "'";
+        $chart_data = [10, 20, 30, 40, 50, 60];
+        $chart_data = "'" . implode( "','",($chart_data) ) . "'";
+        
         return view('dashboard', ['name' => $visitor,
         'revenue' => $Revenue, 'cost' => $Cost, 'profit' => $Profit, 'goal' => $Goal, 
         'traffic' => $t, 'likes' => $formattedLikes, 'sales' => $sales, 
         'members' => $formattedMembers, 'chat' => $chat, 'today' => $today, 'yesterday' => $yesterday, 
-        'date' => $date, 'user' => $User, 'pChart' => $pieChart]);
+        'date' => $date, 'user' => $User, 'pChart' => $pieChart, 'label' => $Labels, 'cdata' => $chart_data]);
         
     }
     public function log()

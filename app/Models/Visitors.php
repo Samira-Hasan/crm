@@ -25,9 +25,8 @@ class Visitors extends Model
 
     public static function createVisitors()
     {
-        return DB::select('SELECT browser_id, COUNT(user_id)
-        FROM Visitors GROUP BY browser_id ORDER BY
-        browser_id ASC');
+        return DB::select('SELECT browser_id, COUNT(user_id) AS Value, Browser.name FROM Visitors LEFT JOIN 
+        Browser ON Visitors.browser_id=Browser.id  WHERE Browser.name <> null GROUP BY browser_id ORDER BY browser_id ASC');
 
 
     }
