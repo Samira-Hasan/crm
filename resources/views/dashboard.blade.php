@@ -506,6 +506,7 @@ var chart = new Chart(ctx, {
           </div>
                </div>
               </div>
+              @include('partials.map')
               <div class='row'>
                  <div class='col-md-8'>
                  <div class="box box-info">
@@ -757,10 +758,12 @@ var chart = new Chart(ctx, {
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
+    <link rel="stylesheet" href="/css/jquery-jvectormap-2.0.3.css" type="text/css" media="screen"/>
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+    <script src="/js/jquery-jvectormap-2.0.3.min.js"></script>
+    <script src="/js/jquery-jvectormap-world-mill.js"></script>
     <script> 
                          $(document).ready(function(){
                              $( "#target" ).submit(function( event ) {
@@ -814,6 +817,40 @@ var chart = new Chart(ctx, {
                                  
                                    event.preventDefault();
                                 });
+                                var plants = [
+                                              {name: 'VAK', <>},
+                                              {name: 'MZFR', coords: [49.0543102, 8.4825862]}, 
+                                              {name: 'AVR', coords: [50.9030599, 6.4213693]}, 
+                                              {name: 'KKR', coords: [53.1472465, 12.9903674]}, 
+                                              {name: 'KRB', coords: [48.513264, 10.4020357]}, 
+                                              {name: 'KWO', coords: [49.364503, 9.076252]}, 
+                                              {name: 'KWL', coords: [52.5331853, 7.2505223]}, 
+                                              {name: 'HDR', coords: [50.1051446, 8.9348691]}, 
+                                              {name: 'KKS', coords: [53.6200685, 9.5306289]}, 
+                                              {name: 'KKN', coords: [48.6558015, 12.2500848]}, 
+                                              {name: 'KGR', coords: [54.1417497, 13.6583877]}, 
+                                              {name: 'KWB', coords: [49.709331, 8.415865]}, 
+                                              {name: 'KWW', coords: [51.6396481, 9.3915617]}, 
+                                              {name: 'GKN', coords: [49.0401151, 9.1721088]}, 
+                                              {name: 'KKB', coords: [53.8913533, 9.2005777]}, 
+                                              {name: 'KKI', coords: [48.5544748, 12.3472095]}, 
+                                              {name: 'KKU', coords: [53.4293465, 8.4774649]}, 
+                                              {name: 'KNK', coords: [49.1473279, 8.3827739]}, 
+                                              {name: 'KKP', coords: [49.2513078, 8.4356761]}, 
+                                              {name: 'KKG', coords: [49.9841308, 10.1846373]}, 
+                                              {name: 'KKK', coords: [53.4104656, 10.4091597]}, 
+                                              {name: 'KWG', coords: [52.0348748, 9.4097793]},
+                                              {name: 'KBR', coords: [53.850666, 9.3457603]},
+                                              {name: 'KMK', coords: [50.408791, 7.4861956]},
+                                              {name: 'THTR', coords: [51.6786228, 7.9700232]},
+                                              {name: 'KKE', coords: [52.4216974, 7.3706389]}
+                                            ];
+                                      $('#world-map').vectorMap({
+                                        map: 'world_mill',
+                                        markers: plants.map(function(h){ return {name: h.name, latLng: h.coords, style: {fill: 'rgba(255, 0, 0)', r:20}} }),      
+                                             
+                                      });
+  
                               });   
                 </script>
 @stop

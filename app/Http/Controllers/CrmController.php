@@ -46,14 +46,42 @@ class CrmController extends Controller
         foreach ($pieChart as $user) {
             array_push($arr, $user->name);
             array_push($val, $user->Value);
-            array_push($bser, $user->browser_id);
+           array_push($bser, $user->browser_id);
         }
-        echo '<pre>';print_r($arr);die();
-        
-        $Labels = array("Chrome", "IE", "Firefox", "Safari", "Opera", "Navigator");
+         $Labels = $arr;
         $Labels= "'" . implode( "','",($Labels) ) . "'";
-        $chart_data = [10, 20, 30, 40, 50, 60];
+      //  echo '<pre>';print_r($val);die();
+        $chart_data = $val;
         $chart_data = "'" . implode( "','",($chart_data) ) . "'";
+        $mapCoor = [
+            [50.0091294, 9.0371812],
+            [49.0543102, 8.4825862],
+            [50.9030599, 6.4213693],
+            [53.1472465, 12.9903674],
+            [48.513264, 10.4020357],
+            [49.364503, 9.076252],
+            [52.5331853, 7.2505223],
+            [50.1051446, 8.9348691],
+            [53.6200685, 9.5306289],
+            [48.6558015, 12.2500848],
+            [54.1417497, 13.6583877],
+            [49.709331, 8.415865],
+            [51.6396481, 9.3915617],
+            [49.0401151, 9.1721088],
+            [53.8913533, 9.2005777],
+            [48.5544748, 12.3472095],
+            [53.4293465, 8.4774649],
+            [49.1473279, 8.3827739],
+            [49.2513078, 8.4356761],
+            [49.9841308, 10.1846373],
+            [53.4104656, 10.4091597],
+            [52.0348748, 9.4097793],
+            [53.850666, 9.3457603],
+            [50.408791, 7.4861956],
+            [51.6786228, 7.9700232],
+            [52.4216974, 7.3706389]
+        ];
+
         
         return view('dashboard', ['name' => $visitor,
         'revenue' => $Revenue, 'cost' => $Cost, 'profit' => $Profit, 'goal' => $Goal, 
