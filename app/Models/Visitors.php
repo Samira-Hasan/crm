@@ -27,12 +27,12 @@ class Visitors extends Model
     {
         return DB::select('SELECT browser_id, COUNT(user_id) AS Value, Browser.name FROM Visitors LEFT JOIN 
         Browser ON Visitors.browser_id=Browser.id  WHERE Browser.name IS NOT null GROUP BY browser_id, Browser.name ORDER BY browser_id ASC');
-
-
     }
 
     public static function addLonLat()
     {
-        return DB::select('SELECT lon, lat FROM visitors');
+         return DB::select('SELECT lon, lat FROM visitors LIMIT 1000');
+        
     }
+     
 }

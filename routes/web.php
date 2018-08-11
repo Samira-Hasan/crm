@@ -20,6 +20,7 @@ Route::post('/login', 'CrmController@authenticate');
 Route::post('/registerStep1', 'CrmController@registerStep1');
 Route::post('/message', 'CrmController@setMessage');
 Route::get('/chatbox', 'CrmController@getChatbox');
+Route::get('/Table', 'CrmController@tables');
 
 Auth::routes();
 

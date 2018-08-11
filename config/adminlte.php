@@ -111,59 +111,131 @@ return [
         'MAIN NAVIGATION',
         
         [
-            'text'        => 'Pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'file',
+            'text'        => 'Dashboard',
+            'url'         => '/dashboard',
+            'icon'        => 'fa fa-dashboard',
             'label'       => 4,
             'label_color' => 'success',
         ],
-        'ACCOUNT SETTINGS',
+        
         [
-            'text' => 'Profile',
+            'text' => 'Layout Options',
             'url'  => 'admin/settings',
-            'icon' => 'user',
+            'icon' => 'fa fa-dashboard',
+            'submenu' => [
+                [
+                    'text' => 'Top Navigation',
+                    'url'  => '#',
+                ],
+                [
+                    'text'    => 'Boxed',
+                    'url'     => '#',
+                    
+                ],
+                [
+                    'text' => 'Fixed',
+                    'url'  => '#',
+                ],
+                [
+                    'text' => 'Collapsed',
+                    'url'  => '#',
+                ],
+            ],
         ],
         [
-            'text' => 'Change Password',
+            'text' => 'Widgets',
             'url'  => 'admin/settings',
             'icon' => 'lock',
         ],
         [
-            'text'    => 'Multilevel',
+            'text'    => 'Charts',
             'icon'    => 'share',
             'submenu' => [
                 [
-                    'text' => 'Level One',
+                    'text' => 'ChartJS',
                     'url'  => '#',
                 ],
                 [
-                    'text'    => 'Level One',
+                    'text'    => 'Morris',
                     'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'Level Two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'Level Two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'Level Three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'Level Three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
+                    
                 ],
                 [
-                    'text' => 'Level One',
+                    'text' => 'Flot',
                     'url'  => '#',
                 ],
+                [
+                    'text' => 'Inline Charts',
+                    'url'  => '#',
+                ],
+            ],
+        ],
+       
+        [
+            'text'    => 'UI Elements',
+            'icon'    => 'share',
+            'submenu' => [
+                [
+                    'text' => 'General',
+                    'url'  => '#',
+                ],
+                [
+                    'text'    => 'Icons',
+                    'url'     => '#',
+                    
+                ],
+                [
+                    'text' => 'Buttons',
+                    'url'  => '#',
+                ],
+                [
+                    'text' => 'Sliders',
+                    'url'  => '#',
+                ],
+                [
+                    'text' => 'Timelines',
+                    'url'  => '#',
+                ],
+                [
+                    'text' => 'Modals',
+                    'url'  => '#',
+                ],
+            ],
+        ],
+        [
+            'text'    => 'Forms',
+            'icon'    => 'share',
+            'submenu' => [
+                [
+                    'text' => 'General Form',
+                    'url'  => '#',
+                ],
+                [
+                    'text'    => 'Advanced Form',
+                    'url'     => '#',
+                    
+                ],
+                [
+                    'text' => 'Editors',
+                    'url'  => '#',
+                ],
+               
+            ],
+        ],
+        [
+            'text'    => 'Tables',
+            'icon'    => 'share',
+            'submenu' => [
+                [
+                    'text' => 'Simple Tables',
+                    'url'  => '/Table',
+                ],
+                [
+                    'text'    => 'Data Tables',
+                    'url'     => '#',
+                    
+                ],
+                
             ],
         ],
         'LABELS',

@@ -11,40 +11,64 @@ use App\Models\MonthlyVisitor;
 use App\Models\Dashboard;
 use App\Models\ChatBox;
 use App\Models\order;
+use App\Models\Tables;
 
 
 class CrmController extends Controller
 {
     public function index()
-    {   
+    {  
         $MonthlyVisitor = MonthlyVisitor::all(['visitor_count'])->toArray();
-
-        $visitor = array_column($MonthlyVisitor, 'visitor_count');
-        $Total = Revenue::getData();
         
+        $visitor = array_column($MonthlyVisitor, 'visitor_count');
+        
+        $Total = Revenue::getData();
+       
         $Revenue = $Total[0]->Total_Revenue;
+        
         $Cost = $Total[0]->Total_Cost;
+        
         $Profit = $Total[0]->Total_Profit;
+        
         $Goal = $Total[0]->Goal;
+        
         $member = Dashboard::createMembers();
+        
         $formattedMembers = number_format($member);
+       
         $sales = Dashboard::where('id', '>=', 800)->sum('sales');
+        
         $sales = number_format($sales);
+        
         $likes = Dashboard::getlikes();
-        $l = $likes[0]->likes;        
+        
+        $l = $likes[0]->likes; 
+        
         $formattedLikes = number_format($l);
+        
         $Traffic = Dashboard::createTraffic();
+       
         $t = $Traffic[0]->traffic;
+       
         $chat = ChatBox::createChatBox();
+        
         $today = "today";
+        
         $yesterday = "yesterday";
+        
         $date = "13 Jan";
+        
         $User = User::setUser();
+        
         $pieChart = Visitors::createVisitors();
+        
        // echo '<pre>';print_r($pieChart);die();
         $arr = [];
+        
         $val = [];
+        
         $bser = [];
+        
         foreach ($pieChart as $user) {
             array_push($arr, $user->name);
             array_push($val, $user->Value);
@@ -192,23 +216,28 @@ class CrmController extends Controller
             ]
 
         ];
-
+        
 
         $latLon = Visitors::addLonLat();
-       // echo '<pre>';print_r($latLon);die();
+       //die('l');
+       //echo '<pre>';print_r($latLon);die();
         $coor = [];
-
+        
         foreach ($latLon as $user) {
             $coor[]['coords'] = [ $user->lat, $user->lon];
 
         }
+        
         $coorData =json_encode($coor);
+       
        //echo '<pre>';print_r($coorData);die();
         $inventSum = Inventory::createSum();
-
+        
 
         $inventory = $inventSum[0]->Val1;
+        
         $mentions = $inventSum[0]->Val2;
+       
         $downloads = $inventSum[0]->Val3;
         $messages = $inventSum[0]->Val4;
         $formattedInventory = number_format($inventory);
@@ -217,7 +246,7 @@ class CrmController extends Controller
         $formattedmessages = number_format($messages);
         $order = order::createOrder();
         //echo '<pre>';print_r($order);die();
-
+        
 
         return view('dashboard', ['name' => $visitor,
         'revenue' => $Revenue, 'cost' => $Cost, 'profit' => $Profit, 'goal' => $Goal, 
@@ -228,6 +257,15 @@ class CrmController extends Controller
             'mentions'=> $formattedmentions, 'downloads'=> $formatteddownloads,
             'messages'=> $formattedmessages, 'orderId' => $order]);
         
+    }
+
+    public function tables()
+    {
+       $borderTable = Tables::createTables();
+       //echo '<pre>';print_r($borderTable);die();
+      
+
+        return view('Tables/simpleTable', ['borderTable'=>$borderTable]);
     }
     public function log()
     {
