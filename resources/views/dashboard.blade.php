@@ -59,7 +59,7 @@
           <div class="box">
         <div class="box-header with-border">
               <h3 class="box-title">Monthly Recap Report</h3>
-               
+
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
@@ -221,12 +221,12 @@ var chart = new Chart(ctx, {
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                
+
                   <!-- Conversations are loaded here -->
                   <div class="direct-chat-messages">
                     <!-- Message. Default to the left -->
                     <?php foreach ($chat as $key => $value) { ?>
-                         
+
                          <div class="direct-chat-msg">
                       <div class="direct-chat-info clearfix">
                         <span class="direct-chat-name pull-left"><?php echo $value->First_Name; ?></span>
@@ -353,7 +353,7 @@ var chart = new Chart(ctx, {
                     </div>
                   </form>
                 </div>
-                
+
                 <!-- /.box-footer-->
               </div>
               </div>
@@ -458,11 +458,11 @@ var chart = new Chart(ctx, {
                             }],
 
                             // These labels appear in the legend and in the tooltips when hovering different arcs
-                            labels: 
+                            labels:
                                 [ <?php echo $label; ?>]
-                            
+
                         },
-                         options: {                  
+                         options: {
                              scales: {
                                 yAxes: [{
                                   ticks: {
@@ -507,175 +507,7 @@ var chart = new Chart(ctx, {
                </div>
               </div>
               @include('partials.map')
-              <div class='row'>
-                 <div class='col-md-8'>
-                 <div class="box box-info">
-            <div class="box-header with-border">
-              <h3 class="box-title">Latest Orders</h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <div class="table-responsive">
-                <table class="table no-margin">
-                  <thead>
-                  <tr>
-                    <th>Order ID</th>
-                    <th>Item</th>
-                    <th>Status</th>
-                    <th>Popularity</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                    <td>Call of Duty IV</td>
-                    <td><span class="label label-success">Shipped</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#00a65a" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                    <td>Samsung Smart TV</td>
-                    <td><span class="label label-warning">Pending</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#f39c12" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                    <td>iPhone 6 Plus</td>
-                    <td><span class="label label-danger">Delivered</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#f56954" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                    <td>Samsung Smart TV</td>
-                    <td><span class="label label-info">Processing</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#00c0ef" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                    <td>Samsung Smart TV</td>
-                    <td><span class="label label-warning">Pending</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#f39c12" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                    <td>iPhone 6 Plus</td>
-                    <td><span class="label label-danger">Delivered</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#f56954" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                    <td>Call of Duty IV</td>
-                    <td><span class="label label-success">Shipped</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#00a65a" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
-                    </td>
-                  </tr>
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.table-responsive -->
-            </div>
-            <!-- /.box-body -->
-            <div class="box-footer clearfix">
-              <a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left">Place New Order</a>
-              <a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">View All Orders</a>
-            </div>
-            <!-- /.box-footer -->
-          </div>
-                 </div>
-                 <div class='col-md-4'>
-                 <div class="box box-primary">
-            <div class="box-header with-border">
-              <h3 class="box-title">Recently Added Products</h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <ul class="products-list product-list-in-box">
-                <li class="item">
-                  <div class="product-img">
-                    <img src="dist/img/default-50x50.gif" alt="Product Image">
-                  </div>
-                  <div class="product-info">
-                    <a href="javascript:void(0)" class="product-title">Samsung TV
-                      <span class="label label-warning pull-right">$1800</span></a>
-                    <span class="product-description">
-                          Samsung 32" 1080p 60Hz LED Smart HDTV.
-                        </span>
-                  </div>
-                </li>
-                <!-- /.item -->
-                <li class="item">
-                  <div class="product-img">
-                    <img src="dist/img/default-50x50.gif" alt="Product Image">
-                  </div>
-                  <div class="product-info">
-                    <a href="javascript:void(0)" class="product-title">Bicycle
-                      <span class="label label-info pull-right">$700</span></a>
-                    <span class="product-description">
-                          26" Mongoose Dolomite Men's 7-speed, Navy Blue.
-                        </span>
-                  </div>
-                </li>
-                <!-- /.item -->
-                <li class="item">
-                  <div class="product-img">
-                    <img src="dist/img/default-50x50.gif" alt="Product Image">
-                  </div>
-                  <div class="product-info">
-                    <a href="javascript:void(0)" class="product-title">Xbox One <span class="label label-danger pull-right">$350</span></a>
-                    <span class="product-description">
-                          Xbox One Console Bundle with Halo Master Chief Collection.
-                        </span>
-                  </div>
-                </li>
-                <!-- /.item -->
-                <li class="item">
-                  <div class="product-img">
-                    <img src="dist/img/default-50x50.gif" alt="Product Image">
-                  </div>
-                  <div class="product-info">
-                    <a href="javascript:void(0)" class="product-title">PlayStation 4
-                      <span class="label label-success pull-right">$399</span></a>
-                    <span class="product-description">
-                          PlayStation 4 500GB Console (PS4)
-                        </span>
-                  </div>
-                </li>
-                <!-- /.item -->
-              </ul>
-            </div>
-            <!-- /.box-body -->
-            <div class="box-footer text-center">
-              <a href="javascript:void(0)" class="uppercase">View All Products</a>
-            </div>
-            <!-- /.box-footer -->
-          </div>
-                 </div>
-              </div>
+              @include('partials.orders')
               <div class='row'>
               <div><div class="row docs-premium-template">
                     <div class="col-sm-12 col-md-6">
@@ -745,7 +577,7 @@ var chart = new Chart(ctx, {
             </div>
 </div>
               </div>
-              
+
 <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.0
@@ -753,7 +585,7 @@ var chart = new Chart(ctx, {
     <strong>Copyright © 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
     reserved.
   </footer>
-              
+
 @stop
 
 @section('css')
@@ -764,7 +596,7 @@ var chart = new Chart(ctx, {
 @section('js')
     <script src="/js/jquery-jvectormap-2.0.3.min.js"></script>
     <script src="/js/jquery-jvectormap-world-mill.js"></script>
-    <script> 
+    <script>
                          $(document).ready(function(){
                              $( "#target" ).submit(function( event ) {
                                 $.ajax({
@@ -788,10 +620,10 @@ var chart = new Chart(ctx, {
                                                         },
                                                   dataType: 'json',
                                                   success: function(html){
-                                                    $(".direct-chat-messages").html('');                                                      
+                                                    $(".direct-chat-messages").html('');
                                                        for(var i = 0; i < html.chat.length; i++) {
                                                                  var obj = html.chat[i];
-                                                                 
+
                                                                  var obj1 = '<div class="direct-chat-msg">' +
                                                                      '<div class="direct-chat-info clearfix">' +
                                                                          '<span class="direct-chat-name pull-left"><?php echo $value->First_Name; ?></span>' +
@@ -802,56 +634,30 @@ var chart = new Chart(ctx, {
                                                                           obj.messege +
                                                                       '</div>' +
                                                                  '</div>';
-                                                                 
+
                                                                  $(".direct-chat-messages").append(obj1);
                                                                    }
                                                               },
                                                   type: 'GET'
                                                 });
                                             }
-                                      
+
                                        $("#results").append(html);
                                        },
                                        type: 'POST'
                                     });
-                                 
+
                                    event.preventDefault();
                                 });
-                                var plants = [
-                                              {name: 'VAK', <>},
-                                              {name: 'MZFR', coords: [49.0543102, 8.4825862]}, 
-                                              {name: 'AVR', coords: [50.9030599, 6.4213693]}, 
-                                              {name: 'KKR', coords: [53.1472465, 12.9903674]}, 
-                                              {name: 'KRB', coords: [48.513264, 10.4020357]}, 
-                                              {name: 'KWO', coords: [49.364503, 9.076252]}, 
-                                              {name: 'KWL', coords: [52.5331853, 7.2505223]}, 
-                                              {name: 'HDR', coords: [50.1051446, 8.9348691]}, 
-                                              {name: 'KKS', coords: [53.6200685, 9.5306289]}, 
-                                              {name: 'KKN', coords: [48.6558015, 12.2500848]}, 
-                                              {name: 'KGR', coords: [54.1417497, 13.6583877]}, 
-                                              {name: 'KWB', coords: [49.709331, 8.415865]}, 
-                                              {name: 'KWW', coords: [51.6396481, 9.3915617]}, 
-                                              {name: 'GKN', coords: [49.0401151, 9.1721088]}, 
-                                              {name: 'KKB', coords: [53.8913533, 9.2005777]}, 
-                                              {name: 'KKI', coords: [48.5544748, 12.3472095]}, 
-                                              {name: 'KKU', coords: [53.4293465, 8.4774649]}, 
-                                              {name: 'KNK', coords: [49.1473279, 8.3827739]}, 
-                                              {name: 'KKP', coords: [49.2513078, 8.4356761]}, 
-                                              {name: 'KKG', coords: [49.9841308, 10.1846373]}, 
-                                              {name: 'KKK', coords: [53.4104656, 10.4091597]}, 
-                                              {name: 'KWG', coords: [52.0348748, 9.4097793]},
-                                              {name: 'KBR', coords: [53.850666, 9.3457603]},
-                                              {name: 'KMK', coords: [50.408791, 7.4861956]},
-                                              {name: 'THTR', coords: [51.6786228, 7.9700232]},
-                                              {name: 'KKE', coords: [52.4216974, 7.3706389]}
-                                            ];
+                                var plants = <?php echo $map; ?>;
+
                                       $('#world-map').vectorMap({
                                         map: 'world_mill',
-                                        markers: plants.map(function(h){ return {name: h.name, latLng: h.coords, style: {fill: 'rgba(255, 0, 0)', r:20}} }),      
-                                             
+                                        markers: plants.map(function(h){ return {name: h.name, latLng: h.coords, style: {fill: 'rgba(255, 0, 0)', r:5}} }),
+
                                       });
-  
-                              });   
+
+                              });
                 </script>
 @stop
 @push('css')

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Inventory;
 use App\Models\Visitors;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -9,6 +10,7 @@ use App\Models\User;
 use App\Models\MonthlyVisitor;
 use App\Models\Dashboard;
 use App\Models\ChatBox;
+use App\Models\order;
 
 
 class CrmController extends Controller
@@ -39,7 +41,7 @@ class CrmController extends Controller
         $date = "13 Jan";
         $User = User::setUser();
         $pieChart = Visitors::createVisitors();
-        
+       // echo '<pre>';print_r($pieChart);die();
         $arr = [];
         $val = [];
         $bser = [];
@@ -54,40 +56,177 @@ class CrmController extends Controller
         $chart_data = $val;
         $chart_data = "'" . implode( "','",($chart_data) ) . "'";
         $mapCoor = [
-            [50.0091294, 9.0371812],
-            [49.0543102, 8.4825862],
-            [50.9030599, 6.4213693],
-            [53.1472465, 12.9903674],
-            [48.513264, 10.4020357],
-            [49.364503, 9.076252],
-            [52.5331853, 7.2505223],
-            [50.1051446, 8.9348691],
-            [53.6200685, 9.5306289],
-            [48.6558015, 12.2500848],
-            [54.1417497, 13.6583877],
-            [49.709331, 8.415865],
-            [51.6396481, 9.3915617],
-            [49.0401151, 9.1721088],
-            [53.8913533, 9.2005777],
-            [48.5544748, 12.3472095],
-            [53.4293465, 8.4774649],
-            [49.1473279, 8.3827739],
-            [49.2513078, 8.4356761],
-            [49.9841308, 10.1846373],
-            [53.4104656, 10.4091597],
-            [52.0348748, 9.4097793],
-            [53.850666, 9.3457603],
-            [50.408791, 7.4861956],
-            [51.6786228, 7.9700232],
-            [52.4216974, 7.3706389]
+            [  "name" => "MZFR",
+              "coords" => [
+                  49.0543102,
+                  8.4825862
+              ]
+            ],
+
+            [  "name" => "AVR",
+                "coords" => [
+                    50.9030599, 6.4213693
+                ]
+            ],
+            [  "name" => "KKR",
+                "coords" => [
+                    53.1472465, 12.9903674
+                ]
+            ],
+            [  "name" => "KRB",
+                "coords" => [
+                    48.513264, 10.4020357
+                ]
+            ],
+            [  "name" => "KWO",
+                "coords" => [
+                    49.364503, 9.076252
+                ]
+            ],
+            [  "name" => "KWL",
+                "coords" => [
+                    52.5331853, 7.2505223
+                ]
+            ],
+            [  "name" => "HDR",
+                "coords" => [
+                    50.1051446, 8.9348691
+                ]
+            ],
+            [  "name" => "KKS",
+                "coords" => [
+                    53.6200685, 9.5306289
+                ]
+            ],
+            [  "name" => "KKN",
+                "coords" => [
+                    48.6558015, 12.2500848
+                ]
+            ],
+            [  "name" => "KGR",
+                "coords" => [
+                    54.1417497, 13.6583877
+                ]
+            ],
+            [  "name" => "KWB",
+                "coords" => [
+                    49.709331, 8.415865
+                ]
+            ],
+            [  "name" => "KWW",
+                "coords" => [
+                    51.6396481, 9.3915617
+                ]
+            ],
+            [  "name" => "GKN",
+                "coords" => [
+                    49.0401151, 9.1721088
+                    ]
+            ],
+                [  "name" => "KKB",
+                    "coords" => [
+                        53.8913533, 9.2005777
+                        ]
+                    ],
+
+                    [  "name" => "KKI",
+                        "coords" => [
+                            48.5544748, 12.3472095
+                            ]
+                        ],
+                    [  "name" => "KKU",
+                        "coords" => [
+                            53.4293465, 8.4774649
+                        ]
+                    ],
+
+                [  "name" => "KNK",
+                    "coords" => [
+                        49.1473279, 8.3827739
+                    ]
+                ],
+            [  "name" => "KKP",
+                "coords" => [
+                    49.2513078, 8.4356761
+                ]
+            ],
+            [  "name" => "KKG",
+                "coords" => [
+                    49.2513078, 8.4356761
+                ]
+            ],
+            [  "name" => "KKG",
+                "coords" => [
+                    49.2513078, 8.4356761
+                ]
+            ],
+            [  "name" => "KKK",
+                "coords" => [
+                    53.4104656, 10.4091597
+                ]
+            ],
+            [  "name" => "KWG",
+                "coords" => [
+                    52.0348748, 9.4097793
+                ]
+            ],
+            [  "name" => "KBR",
+                "coords" => [
+                    53.850666, 9.3457603
+                ]
+            ],
+            [  "name" => "KMK",
+                "coords" => [
+                    50.408791, 7.4861956
+                ]
+            ],
+            [  "name" => "THTR",
+                "coords" => [
+                    51.6786228, 7.9700232
+                ]
+            ],
+            [  "name" => "KKE",
+                "coords" => [
+                    52.4216974, 7.3706389
+                ]
+            ]
+
         ];
 
-        
+
+        $latLon = Visitors::addLonLat();
+       // echo '<pre>';print_r($latLon);die();
+        $coor = [];
+
+        foreach ($latLon as $user) {
+            $coor[]['coords'] = [ $user->lat, $user->lon];
+
+        }
+        $coorData =json_encode($coor);
+       //echo '<pre>';print_r($coorData);die();
+        $inventSum = Inventory::createSum();
+
+
+        $inventory = $inventSum[0]->Val1;
+        $mentions = $inventSum[0]->Val2;
+        $downloads = $inventSum[0]->Val3;
+        $messages = $inventSum[0]->Val4;
+        $formattedInventory = number_format($inventory);
+        $formattedmentions = number_format($mentions);
+        $formatteddownloads = number_format($downloads);
+        $formattedmessages = number_format($messages);
+        $order = order::createOrder();
+        //echo '<pre>';print_r($order);die();
+
+
         return view('dashboard', ['name' => $visitor,
         'revenue' => $Revenue, 'cost' => $Cost, 'profit' => $Profit, 'goal' => $Goal, 
         'traffic' => $t, 'likes' => $formattedLikes, 'sales' => $sales, 
         'members' => $formattedMembers, 'chat' => $chat, 'today' => $today, 'yesterday' => $yesterday, 
-        'date' => $date, 'user' => $User, 'pChart' => $pieChart, 'label' => $Labels, 'cdata' => $chart_data]);
+        'date' => $date, 'user' => $User, 'pChart' => $pieChart, 'label' => $Labels, 'cdata' => $chart_data,
+            'map' => $coorData, 'invent'=> $formattedInventory,
+            'mentions'=> $formattedmentions, 'downloads'=> $formatteddownloads,
+            'messages'=> $formattedmessages, 'orderId' => $order]);
         
     }
     public function log()

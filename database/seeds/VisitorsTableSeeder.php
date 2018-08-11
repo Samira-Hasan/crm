@@ -20,6 +20,8 @@ class VisitorsTableSeeder extends Seeder
                    'user_id' => mt_rand(1, 15),
                    'country_id' => mt_rand(1, 15),
                    'browser_id' => mt_rand(1, 15),
+                   'lon' => mt_rand(1, 54),
+                   'lat' => mt_rand(1, 54),
                    'created_at' => date('Y-m-d H:i:s'),
                    'updated_at' => date('Y-m-d H:i:s'),
                ];

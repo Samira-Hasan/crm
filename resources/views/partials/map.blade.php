@@ -67,7 +67,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Inventory</span>
-              <span class="info-box-number">5,200</span>
+              <span class="info-box-number"><?php echo ($invent);?></span>
 
               <div class="progress">
                 <div class="progress-bar" style="width: 50%"></div>
@@ -84,7 +84,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Mentions</span>
-              <span class="info-box-number">92,050</span>
+              <span class="info-box-number"><?php echo ($mentions);?></span>
 
               <div class="progress">
                 <div class="progress-bar" style="width: 20%"></div>
@@ -101,7 +101,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Downloads</span>
-              <span class="info-box-number">114,381</span>
+              <span class="info-box-number"><?php echo ($downloads);?></span>
 
               <div class="progress">
                 <div class="progress-bar" style="width: 70%"></div>
@@ -118,7 +118,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Direct Messages</span>
-              <span class="info-box-number">163,921</span>
+              <span class="info-box-number"><?php echo ($messages);?></span>
 
               <div class="progress">
                 <div class="progress-bar" style="width: 40%"></div>
