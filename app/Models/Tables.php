@@ -12,6 +12,21 @@ class Tables extends Model
 
     public static function createTables()
     {
-        return DB::select("SELECT * FROM Tables ORDER BY id ASC");
+        
+
+        return DB::table('Tables')
+               ->select('*')
+               ->orderBy('id', 'asc')
+               ->paginate(15);
+               
     }
+    public static function createTables2()
+    {
+        return DB::table('Tables')
+               ->select('*')
+               ->orderBy('id', 'DESC')
+               ->paginate(15);
+               
+    }
+    
 }

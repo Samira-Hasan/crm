@@ -208,7 +208,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'General Form',
-                    'url'  => '#',
+                    'url'  => '/Form',
                 ],
                 [
                     'text'    => 'Advanced Form',

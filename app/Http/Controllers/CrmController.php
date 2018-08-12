@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 use App\Models\Inventory;
 use App\Models\Visitors;
 use Illuminate\Http\Request;
@@ -263,9 +264,14 @@ class CrmController extends Controller
     {
        $borderTable = Tables::createTables();
        //echo '<pre>';print_r($borderTable);die();
-      
+       $widthTable = Tables::createTables2();
+       //echo '<pre>';print_r($widthTable);die();
+       return view('Tables/simpleTable', ['borderTable'=>$borderTable, 'widthTable' => $widthTable]);
+    }
 
-        return view('Tables/simpleTable', ['borderTable'=>$borderTable]);
+    public function forms()
+    {
+        return view('Forms/simpleForms');
     }
     public function log()
     {

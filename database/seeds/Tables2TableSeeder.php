@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class TablesTableSeeder extends Seeder
+class Tables2TableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,7 +17,7 @@ class TablesTableSeeder extends Seeder
             $list = [];
             for($j = 0; $j <= 1000; $j++){
                $list[] = [
-                   'Task' => 'Update software',
+                   'Task' => 'software',
                    'Progress' => '',
                    'Label' => mt_rand(30, 100),
                    'created_at' => date('Y-m-d H:i:s'),
@@ -25,8 +25,7 @@ class TablesTableSeeder extends Seeder
                ];
                $position++;
            }
-             DB::table('Tables')->insert($list);
+             DB::table('Tables2')->insert($list);
        }
     }
 }
-
