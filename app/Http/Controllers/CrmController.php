@@ -13,6 +13,7 @@ use App\Models\Dashboard;
 use App\Models\ChatBox;
 use App\Models\order;
 use App\Models\Tables;
+use Validator;
 
 
 class CrmController extends Controller
@@ -269,8 +270,63 @@ class CrmController extends Controller
        return view('Tables/simpleTable', ['borderTable'=>$borderTable, 'widthTable' => $widthTable]);
     }
 
-    public function forms()
+    public function forms(Request $request)
     {
+        if ($request->isMethod('post')) {
+            
+            //echo '<pre>'; print_r($_FILES);die();
+            $validator = Validator::make($request->all(), [
+                'exampleInputEmail1' => 'required|email',
+                'exampleInputPassword1' => 'required',
+            ]);
+            //echo '<pre>'; print_r($validator->fails()); die();
+            if ($validator->fails()) {
+                return redirect('/Form')
+                            ->withErrors($validator)
+                            ->withInput();
+            }
+        
+            $target_dir = public_path()."/uploads/";
+            $target_file = $target_dir . basename($_FILES["exampleInputFile"]["name"]);
+            $uploadOk = 1;
+            $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+            $check = getimagesize($_FILES["exampleInputFile"]["tmp_name"]);
+            if($check !== false) {
+               
+                $uploadOk = 1;
+            } else {
+                
+                $uploadOk = 0;
+    }
+               
+            if (file_exists($target_file)) {
+                
+                $uploadOk = 0;
+            }
+           
+            if ($_FILES["exampleInputFile"]["size"] > 500000) {
+                
+                $uploadOk = 0;
+            }
+            
+            if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+            && $imageFileType != "gif" ) {
+               
+                $uploadOk = 0;
+            }
+            
+            if ($uploadOk != 0) {
+                if (move_uploaded_file($_FILES["exampleInputFile"]["tmp_name"], $target_file)) {
+                    echo "The file ". basename( $_FILES["exampleInputFile"]["name"]). " has been uploaded.";die('g');
+                } else {
+                   
+                }
+                echo '<pre>'; print_r($uploadOk); die();
+            }
+
+        }
+
+        //echo '<pre>'; print_r($validator); die();
         return view('Forms/simpleForms');
     }
     public function log()
