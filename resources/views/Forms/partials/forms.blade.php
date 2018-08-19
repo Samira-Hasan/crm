@@ -9,9 +9,20 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" id="myform" method="post" action="<?php echo url('/Form');?>">
+
+            <form role="form" method="post" action="{{url('/Form') }}" enctype="multipart/form-data">
+
               <div class="box-body">
                 <div class="form-group">
+                          @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                   <label for="exampleInputEmail1">Email address</label>
                   <input type="email" class="form-control" id="exampleInputEmail1" name="exampleInputEmail1" placeholder="Enter email">
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -22,13 +33,13 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleInputFile">File input</label>
-                  <input type="file" id="exampleInputFile">
+                  <input type="file" id="exampleInputFile" name="exampleInputFile">
 
                   <p class="help-block">Example block-level help text here.</p>
                 </div>
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox"> Check me out
+                    <input type="checkbox" name="Check_me_out"> Check me out
                   </label>
                 </div>
               </div>
