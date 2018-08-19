@@ -22,6 +22,7 @@ Route::post('/message', 'CrmController@setMessage');
 Route::get('/chatbox', 'CrmController@getChatbox');
 Route::get('/Table', 'CrmController@tables');
 Route::get('/Form', 'CrmController@forms');
+Route::post('/Form', 'CrmController@forms');
 
 Auth::routes();
 

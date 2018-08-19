@@ -13,8 +13,8 @@
 @stop
 
 @section('js')
-   
-<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
                            <script>
@@ -25,10 +25,28 @@
                                     exampleInputEmail1:{
                                     required: true,
                                     email: true
+
+                                    },
+                                    exampleInputPassword1:{
+                                        required: true,
+                                        minlength: 6
                                     }
                                 }
                                 });
-                         
+                              $( "#myform1" ).validate({
+                                  rules: {
+                                      inputEmail3: {
+                                          required: true,
+                                          email: true
+                                      },
+
+                                      inputPassword3: {
+                                          required: true,
+                                          minlength: 6
+                                      }
+                                  },
+                              });
+
                             });
                             </script>
 @stop

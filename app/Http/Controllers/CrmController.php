@@ -269,8 +269,11 @@ class CrmController extends Controller
        return view('Tables/simpleTable', ['borderTable'=>$borderTable, 'widthTable' => $widthTable]);
     }
 
-    public function forms()
+    public function forms(Request $request)
     {
+        if ($request->isMethod('post')) {
+            echo'<pre>'; print_r($_POST);die();
+        }
         return view('Forms/simpleForms');
     }
     public function log()
