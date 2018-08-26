@@ -397,6 +397,57 @@ class CrmController extends Controller
     }
    }
     
+   public function ajaxForm(Request $request)
+   {
+    if ($request->isMethod('post')) {
+            
+        //echo '<pre>'; print_r($_FILES);die();
+        $validator = Validator::make($request->all(), [
+            'singleValues' => 'required',
+            'singleValues2' => 'required',
+            'singleValues3' => 'required',
+        ]);
+
+                $User = new Tables;
+   
+                $User->Task = $request->singleValues;
+                $User->Progress = $request->singleValues2;
+                $User->Label = $request->singleValues3;
+                $User->save();
+        //echo '<pre>'; print_r($validator->fails()); die();
+        if ($validator->fails()) {
+            return redirect('/formAjax')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+   }
+}
+
+public function elements(Request $request)
+{
+ if ($request->isMethod('post')) {
+         
+     echo '<pre>'; print_r($_POST);die();
+     $validator = Validator::make($request->all(), [
+         'inputelements' => 'required',
+         'inputelements2' => 'required',
+         
+     ]);
+
+             $User = new Tables;
+             $User->Task = $request->inputelements;
+             $User->Progress = $request->inputelements2;
+             
+             $User->save();
+     //echo '<pre>'; print_r($validator->fails()); die();
+     if ($validator->fails()) {
+         return redirect('/formAjax')
+                     ->withErrors($validator)
+                     ->withInput();
+     }
+   }
+}
+
     public function getChatbox(Request $request) 
      {
         $chat = ChatBox::createChatBox();
