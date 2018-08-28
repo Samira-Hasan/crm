@@ -272,15 +272,35 @@ class CrmController extends Controller
 
     public function forms(Request $request)
     {
-        if ($request->isMethod('post')) {
 
-            
-            //echo '<pre>'; print_r($_FILES);die();
+        if ($request->isMethod('post')) {
             $validator = Validator::make($request->all(), [
+                'exampleInputFirstName' => 'required',
+                'exampleInputLastName' => 'required',
+                'exampleInputPhone' => 'required',
                 'exampleInputEmail1' => 'required|email',
                 'exampleInputPassword1' => 'required',
+                'inputFirstName' => 'required',
+                'inputLastName' => 'required',
+                'inputPhone' => 'required',
+                'inputEmail3' => 'required|email',
+                'inputPassword3' => 'required',
             ]);
-            //echo '<pre>'; print_r($validator->fails()); die();
+
+            $user = new user;
+            $user->First_Name = $request->exampleInputFirstName;
+            $user->Last_Name = $request->exampleInputLastName;
+            $user->Phone = $request->exampleInputPhone;
+            $user->email = $request->exampleInputEmail1;
+            $user->password = $request->exampleInputPassword1;
+            $user->First_Name = $request->inputFirstName;
+            $user->Last_Name = $request->inputLastName;
+            $user->Phone = $request->inputPhone;
+            $user->email = $request->inputEmail3;
+            $user->password = $request->inputPassword3;
+
+            $user->save();
+            //echo '<pre>';print_r($user);die();
             if ($validator->fails()) {
                 return redirect('/Form')
                             ->withErrors($validator)
@@ -318,18 +338,17 @@ class CrmController extends Controller
             
             if ($uploadOk != 0) {
                 if (move_uploaded_file($_FILES["exampleInputFile"]["tmp_name"], $target_file)) {
-                    echo "The file ". basename( $_FILES["exampleInputFile"]["name"]). " has been uploaded.";die('g');
+                    echo "The file ". basename( $_FILES["exampleInputFile"]["name"]). " has been uploaded.";
                 } else {
                    
                 }
-                echo '<pre>'; print_r($uploadOk); die();
+
             }
+
 
         }
 
-        //echo '<pre>'; print_r($validator); die();
-
-        return view('Forms/simpleForms');
+           return view('Forms/simpleForms');
     }
     public function log()
     {

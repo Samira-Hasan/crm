@@ -22,10 +22,21 @@
                           $(document).ready(function(){
                                 $( "#myform" ).validate({
                                 rules: {
+                                    exampleInputFirstName:{
+                                        required: true,
+                                        max: 23
+                                    },
+                                    exampleInputLastName:{
+                                        required: true,
+                                        max: 23
+                                    },
+                                    exampleInputPhone:{
+                                        required: true,
+                                        max: 23
+                                    },
                                     exampleInputEmail1:{
                                     required: true,
                                     email: true
-
                                     },
                                     exampleInputPassword1:{
                                         required: true,
@@ -35,6 +46,18 @@
                                 });
                               $( "#myform1" ).validate({
                                   rules: {
+                                      inputFirstName: {
+                                          required: true,
+
+                                      },
+                                      inputLastName: {
+                                          required: true,
+
+                                      },
+                                      inputPhone: {
+                                          required: true,
+
+                                      },
                                       inputEmail3: {
                                           required: true,
                                           email: true
