@@ -65,19 +65,34 @@
           <!-- /.box -->
                               
           <!-- Form Element sizes -->
+          <form id="target"role="form" method="post" action="{{url('/Form') }}" enctype="multipart/form-data">
+          @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
           <div class="box box-success">
             <div class="box-header with-border">
               <h3 class="box-title">Different Height</h3>
             </div>
             <div class="box-body">
-              <input class="form-control input-lg" type="text" placeholder=".input-lg">
+              <input id="select" class="form-control input-lg" type="text" placeholder=".input-lg" name="singleValues">
+              <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <br>
-              <input class="form-control" type="text" placeholder="Default input">
+              <input id="select2" class="form-control" type="text" placeholder="Default input" name="singleValues2">
               <br>
-              <input class="form-control input-sm" type="text" placeholder=".input-sm">
+              <input id="select3" class="form-control input-sm" type="text" placeholder=".input-sm" name="singleValues3">
             </div>
+            <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
             <!-- /.box-body -->
           </div>
+          </form>
           <!-- /.box -->
 
           <div class="box box-danger">
@@ -301,11 +316,12 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <form role="form">
+              <form role="form" id="myform1" method="post">
                 <!-- text input -->
                 <div class="form-group">
                   <label>Text</label>
-                  <input type="text" class="form-control" placeholder="Enter ...">
+                  <input type="text" class="form-control" placeholder="Enter ..." name="inputelements1" id="inputelements1">
+                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 </div>
                 <div class="form-group">
                   <label>Text Disabled</label>
@@ -315,13 +331,18 @@
                 <!-- textarea -->
                 <div class="form-group">
                   <label>Textarea</label>
-                  <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                  <textarea class="form-control" rows="3" placeholder="Enter ..." name="inputelements2" id="inputelements2"></textarea>
                 </div>
                 <div class="form-group">
                   <label>Textarea Disabled</label>
                   <textarea class="form-control" rows="3" placeholder="Enter ..." disabled=""></textarea>
                 </div>
+                <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                </form>
 
+                <form>
                 <!-- input states -->
                 <div class="form-group has-success">
                   <label class="control-label" for="inputSuccess"><i class="fa fa-check"></i> Input with success</label>
