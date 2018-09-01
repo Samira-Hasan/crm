@@ -13,8 +13,8 @@
 @stop
 
 @section('js')
-   
-<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
                            <script>
@@ -22,12 +22,56 @@
                           $(document).ready(function(){
                                 $( "#myform" ).validate({
                                 rules: {
+                                    exampleInputFirstName:{
+                                        required: true,
+                                        max: 23
+                                    },
+                                    exampleInputLastName:{
+                                        required: true,
+                                        max: 23
+                                    },
+                                    exampleInputPhone:{
+                                        required: true,
+                                        max: 23
+                                    },
                                     exampleInputEmail1:{
                                     required: true,
                                     email: true
+                                    },
+                                    exampleInputPassword1:{
+                                        required: true,
+                                        minlength: 6
                                     }
                                 }
                                 });
+
+                              $( "#myform1" ).validate({
+                                  rules: {
+                                      inputFirstName: {
+                                          required: true,
+
+                                      },
+                                      inputLastName: {
+                                          required: true,
+
+                                      },
+                                      inputPhone: {
+                                          required: true,
+
+                                      },
+                                      inputEmail3: {
+                                          required: true,
+                                          email: true
+                                      },
+
+                                      inputPassword3: {
+                                          required: true,
+                                          minlength: 6
+                                      }
+                                  },
+                              });
+
+
                                 $( "#target" ).submit(function( event ) {
                                     var singleValues = $( "#select" ).val();
                                     var singleValues2 = $( "#select2" ).val();
@@ -58,21 +102,23 @@
                                             rules: {
                                                 inputelements1: {
                                                     required: true,
-                                                    
+
                                                     remote: {
                                                         url: '{{url("/formElements")}}',
-                                                        type: "post"
+                                                        type: "post",
                                                         data: {
                                                             "_token": "{{ csrf_token() }}"
+                                                        }
+                                                    },
+                                                    inputelements2: {
+                                                        required: true,
+
+
                                                     }
-                                                },
-                                                inputelements2: {
-                                                required: true,
-                                                
-                                               
                                                 }
                                             }
                                    });
+
                             });
                             </script>
 @stop
