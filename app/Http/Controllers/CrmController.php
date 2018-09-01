@@ -14,6 +14,7 @@ use App\Models\ChatBox;
 use App\Models\order;
 use App\Models\Tables;
 use Validator;
+use Mail;
 
 
 class CrmController extends Controller
@@ -261,7 +262,56 @@ class CrmController extends Controller
         
     }
 
-    public function tables()
+    public function setProfile()
+     {
+        return view('Profile/sample');
+     }
+     
+     public function proForm(Request $request)
+     {
+        if ($request->isMethod('post')) {
+            
+            //echo '<pre>'; print_r($_POST);die();
+            $validator = Validator::make($request->all(), [
+                'inputfName' => 'required',
+                'inputlName' => 'required',
+                'inputEmail' => 'required',
+                'inputPhone' => 'required',
+                'inputFacebook' => 'required',
+                'inputPassword' => 'required',
+            ]);
+    
+                    $User = new User;
+       
+                    $User->First_Name = $request->inputfName;
+                    $User->Last_Name = $request->inputlName;
+                    $User->email = $request->inputEmail;
+                    $User->Phone = $request->inputPhone;
+                    $User->FaceBook = $request->inputFacebook;
+                    $User->password = $request->inputPassword;
+                    $User->save();
+            //echo '<pre>'; print_r($User); die();
+            Mail::send('emails.welcome', [], function ($message) {
+                $message->from('us@example.com', 'Laravel');
+                $message->sender($address, $name = null);
+                $message->to($address, $name = null);
+                $message->cc($address, $name = null);
+                $message->bcc($address, $name = null);
+                $message->replyTo($address, $name = null);
+                $message->subject($subject);
+                $message->priority($level);
+               
+            });
+            
+            if ($validator->fails()) {
+                return redirect('/profile')
+                            ->withErrors($validator)
+                            ->withInput();
+            }
+            return redirect('/profile');
+       }
+     }
+     public function tables()
     {
        $borderTable = Tables::createTables();
        //echo '<pre>';print_r($borderTable);die();
