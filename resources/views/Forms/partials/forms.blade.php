@@ -10,7 +10,7 @@
             <!-- /.box-header -->
             <!-- form start -->
 
-             <form role="form" method="post" action="{{url('/Form') }}" enctype="multipart/form-data">
+             <form id="myform" role="form" method="post" action="{{url('/Form') }}" enctype="multipart/form-data">
                @if ($errors->any())
                  <div class="alert alert-danger">
                    <ul>
@@ -241,7 +241,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal" role="form" method="post" action="{{url('/Form') }}" enctype="multipart/form-data">
+            <form id="myform1" class="form-horizontal" role="form" method="post" action="{{url('/Form') }}" enctype="multipart/form-data">
               @if ($errors->any())
                 <div class="alert alert-danger">
                   <ul>

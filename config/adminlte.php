@@ -117,7 +117,14 @@ return [
             'label'       => 4,
             'label_color' => 'success',
         ],
-        
+
+        [
+            'text'        => 'Profile',
+            'url'         => '/Profile',
+            'icon'        => 'fa fa-dashboard',
+            'label_color' => 'success',
+        ],
+
         [
             'text' => 'Layout Options',
             'url'  => 'admin/settings',

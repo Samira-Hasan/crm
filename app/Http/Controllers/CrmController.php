@@ -261,6 +261,12 @@ class CrmController extends Controller
         
     }
 
+    public function profile()
+    {
+        return view('profile/sample');
+    }
+
+
     public function tables()
     {
        $borderTable = Tables::createTables();

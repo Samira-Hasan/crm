@@ -25,6 +25,7 @@ Route::get('/Form', 'CrmController@forms');
 Route::post('/Form', 'CrmController@forms');
 Route::Post('/formAjax', 'CrmController@ajaxForm');
 Route::Post('/formElements', 'CrmController@elements');
+Route::get('/Profile', 'CrmController@profile');
 
 Auth::routes();
 
