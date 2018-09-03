@@ -126,6 +126,13 @@ return [
         ],
 
         [
+            'text'        => 'Profile',
+            'url'         => '/profile',
+            'icon'        => 'fa fa-dashboard',
+            'label_color' => 'success',
+        ],
+
+        [
             'text' => 'Layout Options',
             'url'  => 'admin/settings',
             'icon' => 'fa fa-dashboard',
